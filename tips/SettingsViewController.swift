@@ -19,8 +19,13 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
         // Do any additional setup after loading the view.
         self.defaultTipPickerView.dataSource = self
         self.defaultTipPickerView.delegate = self
-        
-        defaultTipPickerView.selectRow(savedPickerRow, inComponent: 0, animated: true)
+        let defaults = NSUserDefaults.standardUserDefaults()
+        savedPickerRow = defaults.integerForKey("saved_picker_row")
+        if (savedPickerRow != 0){
+            defaultTipPickerView.selectRow(savedPickerRow, inComponent: 0, animated: true)
+        } else {
+            defaultTipPickerView.selectRow(2, inComponent: 0, animated: true)
+        }
         
     }
 
@@ -43,6 +48,8 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         savedPickerRow = row
+        let defaults = NSUserDefaults.standardUserDefaults()
+        defaults.setInteger(savedPickerRow, forKey: "saved_picker_row")
     }
     
 

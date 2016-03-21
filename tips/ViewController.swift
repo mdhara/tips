@@ -30,9 +30,17 @@ class ViewController: UIViewController {
         let text = savedBillAmount > 0 ? String(format: "%.2f", savedBillAmount) : String()
         billField.text = text
         billField.becomeFirstResponder()
-        tipControl.selectedSegmentIndex = defaults.integerForKey("default_tip_percentage")
-        tipLabel.text = "%0.00"
-        totalLabel.text = "$0.00"
+        if let defaultTipPercentage = defaults.integerForKey("default_tip_percentage") as Int? {
+            tipControl.selectedSegmentIndex = defaultTipPercentage
+        } else {
+            tipControl.selectedSegmentIndex = 1
+        }
+        if(savedBillAmount > 0) {
+            onEditingChanged(nil)
+        } else {
+            tipLabel.text = "%0.00"
+            totalLabel.text = "$0.00"
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -40,7 +48,7 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    @IBAction func onEditingChanged(sender: AnyObject) {
+    @IBAction func onEditingChanged(sender: AnyObject?) {
         var tipPercentages = [0.18, 0.20, 0.22]
         let tipPercentage = tipPercentages[tipControl.selectedSegmentIndex]
         
@@ -78,9 +86,8 @@ class ViewController: UIViewController {
             tipControl.selectedSegmentIndex = 1
         }
         let defaults = NSUserDefaults.standardUserDefaults()
-        defaults.setInteger(savedPickerRow, forKey: "saved_picker_row")
         defaults.setInteger(tipControl.selectedSegmentIndex, forKey: "default_tip_percentage")
-        defaults.synchronize()
+        onEditingChanged(nil)
     }
     
     @IBAction func cancelSettings(segue: UIStoryboardSegue) {
