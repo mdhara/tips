@@ -14,6 +14,10 @@ class ViewController: UIViewController {
     @IBOutlet weak var tipLabel: UILabel!
     @IBOutlet weak var totalLabel: UILabel!
     @IBOutlet weak var tipControl: UISegmentedControl!
+    @IBOutlet weak var twoPersonLabel: UILabel!
+    @IBOutlet weak var threePersonLabel: UILabel!
+    @IBOutlet weak var fourPersonLabel: UILabel!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,12 +56,18 @@ class ViewController: UIViewController {
         let billAmount = NSString(string: billField.text!).doubleValue
         let tip = billAmount * tipPercentage
         let total = billAmount + tip
+        let twoPersonTotal = total / 2
+        let threePersonTotal = total / 3
+        let fourPersonTotal = total / 4
         
         let numberFormatter = NSNumberFormatter()
         numberFormatter.numberStyle = .CurrencyStyle
         
         tipLabel.text = numberFormatter.stringFromNumber(tip)
         totalLabel.text = numberFormatter.stringFromNumber(total)
+        twoPersonLabel.text = numberFormatter.stringFromNumber(twoPersonTotal)
+        threePersonLabel.text = numberFormatter.stringFromNumber(threePersonTotal)
+        fourPersonLabel.text = numberFormatter.stringFromNumber(fourPersonTotal)
         
         let currentDate = NSDate()
         let defaults = NSUserDefaults.standardUserDefaults()
