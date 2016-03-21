@@ -15,7 +15,6 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
     var savedPickerRow = 2
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("hello")
         // Do any additional setup after loading the view.
         self.defaultTipPickerView.dataSource = self
         self.defaultTipPickerView.delegate = self

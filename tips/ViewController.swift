@@ -37,9 +37,6 @@ class ViewController: UIViewController {
         }
         if(savedBillAmount > 0) {
             onEditingChanged(nil)
-        } else {
-            tipLabel.text = "%0.00"
-            totalLabel.text = "$0.00"
         }
     }
 
@@ -56,17 +53,16 @@ class ViewController: UIViewController {
         let tip = billAmount * tipPercentage
         let total = billAmount + tip
         
-        tipLabel.text = "$\(tip)"
-        totalLabel.text = "$\(total)"
+        let numberFormatter = NSNumberFormatter()
+        numberFormatter.numberStyle = .CurrencyStyle
         
-        tipLabel.text = String(format: "$%.2f", tip)
-        totalLabel.text = String(format: "$%.2f", total)
+        tipLabel.text = numberFormatter.stringFromNumber(tip)
+        totalLabel.text = numberFormatter.stringFromNumber(total)
         
         let currentDate = NSDate()
         let defaults = NSUserDefaults.standardUserDefaults()
         defaults.setDouble(NSString(string: billField.text!).doubleValue, forKey: "bill_amount_key")
         defaults.setObject(currentDate, forKey: "current_date_key")
-        defaults.synchronize()
 
     }
 
