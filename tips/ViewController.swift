@@ -18,6 +18,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var threePersonLabel: UILabel!
     @IBOutlet weak var fourPersonLabel: UILabel!
     
+    var billSaved:Bill!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -107,7 +108,10 @@ class ViewController: UIViewController {
         let numberFormatter = NSNumberFormatter()
         numberFormatter.numberStyle = .CurrencyStyle
         let billToBeSaved = Bill(date: NSDate(), bill: numberFormatter.stringFromNumber(currentBill)!)
-        BillDataSource.sharedManager.bills.append(billToBeSaved!)
+        if(billToBeSaved?.compare(billSaved) == false) {
+            billSaved = billToBeSaved
+            BillDataSource.sharedManager.bills.append(billToBeSaved!)
+        }
     }
     
     

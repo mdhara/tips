@@ -21,4 +21,14 @@ class Bill {
             return nil
         }
     }
+    
+    func compare(bill: Bill?) -> Bool
+    {
+        if(bill == nil) {
+            return false
+        }
+        return
+        ((-1 * (bill?.date.timeIntervalSinceNow)!) < 600 &&
+        self.bill == bill!.bill)
+    }
 }
