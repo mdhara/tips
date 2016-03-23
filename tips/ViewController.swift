@@ -99,6 +99,18 @@ class ViewController: UIViewController {
     @IBAction func cancelSettings(segue: UIStoryboardSegue) {
     }
     
+    @IBAction func doneHistory(segue: UIStoryboardSegue) {
+    }
+    
+    @IBAction func saveBill(sender: AnyObject) {
+        let currentBill = NSString(string: billField.text!).doubleValue
+        let numberFormatter = NSNumberFormatter()
+        numberFormatter.numberStyle = .CurrencyStyle
+        let billToBeSaved = Bill(date: NSDate(), bill: numberFormatter.stringFromNumber(currentBill)!)
+        BillDataSource.sharedManager.bills.append(billToBeSaved!)
+    }
+    
+    
 /*    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "settingsScreenSegue" {
             if let settingsViewController = segue.destinationViewController as? SettingsViewController {
