@@ -46,7 +46,7 @@ class HistoryTableViewController: UITableViewController {
         // Configure the cell...
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "dd-MM-yyyy"
-        cell.textLabel?.text = "\(dateFormatter.stringFromDate(BillDataSource.sharedManager.bills[indexPath.row].date))                             \(BillDataSource.sharedManager.bills[indexPath.row].bill)"
+        cell.textLabel?.text = "\(dateFormatter.stringFromDate(BillDataSource.sharedManager.bills[indexPath.row].date))                             \(BillDataSource.sharedManager.bills[indexPath.row].amount)"
         
         return cell
     }

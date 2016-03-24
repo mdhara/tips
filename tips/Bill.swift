@@ -12,11 +12,11 @@ class Bill {
     // MARK: Properties
     
     var date: NSDate
-    var bill: String
+    var amount: String
     
     init?(date: NSDate, bill: String) {
         self.date = date
-        self.bill = bill
+        self.amount = bill
         if(bill.isEmpty) {
             return nil
         }
@@ -24,11 +24,10 @@ class Bill {
     
     func compare(bill: Bill?) -> Bool
     {
+        let historyRetainTime: Double = 60 //60 seconds
         if(bill == nil) {
             return false
         }
-        return
-        ((-1 * (bill?.date.timeIntervalSinceNow)!) < 600 &&
-        self.bill == bill!.bill)
+        return ((-1 * (bill?.date.timeIntervalSinceNow)!) < historyRetainTime && self.amount == bill!.amount)
     }
 }

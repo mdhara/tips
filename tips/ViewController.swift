@@ -107,7 +107,9 @@ class ViewController: UIViewController {
     }
     
     @IBAction func saveBill(sender: AnyObject) {
-        let currentBill = NSString(string: billField.text!).doubleValue
+        var tipPercentages = [0.18, 0.20, 0.22]
+        let tipPercentage = tipPercentages[tipControl.selectedSegmentIndex]
+        let currentBill = NSString(string: billField.text!).doubleValue * (1+tipPercentage)
         let numberFormatter = NSNumberFormatter()
         numberFormatter.numberStyle = .CurrencyStyle
         let billToBeSaved = Bill(date: NSDate(), bill: numberFormatter.stringFromNumber(currentBill)!)
