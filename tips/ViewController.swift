@@ -17,6 +17,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var twoPersonLabel: UILabel!
     @IBOutlet weak var threePersonLabel: UILabel!
     @IBOutlet weak var fourPersonLabel: UILabel!
+    @IBOutlet weak var saveBillButton: UIButton!
     
     var billSaved:Bill!
     
@@ -51,6 +52,8 @@ class ViewController: UIViewController {
     }
 
     @IBAction func onEditingChanged(sender: AnyObject?) {
+        saveBillButton.userInteractionEnabled = true
+        saveBillButton.setTitle("Save Bill", forState: .Normal)
         var tipPercentages = [0.18, 0.20, 0.22]
         let tipPercentage = tipPercentages[tipControl.selectedSegmentIndex]
         
@@ -111,6 +114,8 @@ class ViewController: UIViewController {
         if(billToBeSaved?.compare(billSaved) == false) {
             billSaved = billToBeSaved
             BillDataSource.sharedManager.bills.append(billToBeSaved!)
+            saveBillButton.userInteractionEnabled = false
+            saveBillButton.setTitle("Saved", forState: .Normal)
         }
     }
     

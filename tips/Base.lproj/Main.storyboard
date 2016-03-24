@@ -149,6 +149,7 @@
                     <connections>
                         <outlet property="billField" destination="wkM-Dk-6FL" id="ym5-xz-lAt"/>
                         <outlet property="fourPersonLabel" destination="WhY-Er-m4O" id="8Wo-Ty-bke"/>
+                        <outlet property="saveBillButton" destination="khu-dx-O8a" id="ZVa-Rw-BSY"/>
                         <outlet property="threePersonLabel" destination="ClS-sk-qpP" id="Av9-TJ-YfI"/>
                         <outlet property="tipControl" destination="T5f-LC-Dp6" id="taZ-Rw-udp"/>
                         <outlet property="tipLabel" destination="DKU-A1-WB3" id="AYx-zV-xnF"/>
@@ -178,7 +179,7 @@
                                 <rect key="frame" x="0.0" y="92" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xLT-tE-aSr" id="2RZ-W7-utu">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -186,7 +187,7 @@
                                 <rect key="frame" x="0.0" y="136" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VZc-q8-TRs" id="y5G-tE-X6E">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
