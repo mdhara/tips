@@ -14,6 +14,6 @@ Completed:
 * [ ] Optional: Making sure the keyboard is always visible and the bill amount is always the first responder. This way the user doesn't have to tap anywhere to use this app. Just launch the app and start typing.
 * [ ] optional: Implemented History to save the bills with date and bill amount. Saved bills can be deleted by swiping
 
-![Video Walkthrough](name of your gif file.gif)
+![Video Walkthrough](tips_gif.gif)
 
-Note: to embed the gif file, just check your gif file into your repo and update the name of the file above.
+
